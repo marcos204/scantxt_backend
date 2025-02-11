@@ -7,8 +7,8 @@ import io
 app = Flask(__name__)
 CORS(app)  # Habilite o CORS para todas as rotas
 
-# Configuração do Tesseract (necessário apenas no Windows)
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# Configuração do Tesseract (não é necessário no Dockerfile)
+# pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
