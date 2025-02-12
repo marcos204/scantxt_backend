@@ -5,10 +5,15 @@ import pytesseract
 import io
 
 app = Flask(__name__)
-CORS(app, origins=["https://scantxt.onrender.com/"])  # Habilite o CORS para todas as rotas
 
-# Configuração do Tesseract (não é necessário no Dockerfile)
-# pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+# Configuração do CORS para permitir o domínio do frontend
+CORS(app, resources={
+    r"/upload": {
+        "origins": ["https://frontend-scantxt.onrender.com"],
+        "methods": ["POST"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
