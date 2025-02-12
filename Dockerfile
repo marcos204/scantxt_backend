@@ -19,7 +19,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Defina a variável de ambiente TESSDATA_PREFIX
-ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/5/tessdata
 
 # Exponha a porta 5000
 EXPOSE 5000
